@@ -1,16 +1,9 @@
-using ApiEventos.Middleware;
-using ApplicationLayer.Articulos.Handlers;
-using DomainLayer.Querys;
-using FluentValidation;
 using HealthChecks.UI.Client;
-using InfrastuctureLayer.Articulos.Context;
-using MediatR;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
+using ProductsApi.Application.Handlers;
+using ProductsApi.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,7 +55,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining(ty
 var Configuration = builder.Configuration;
 
 //EntityFramework
-builder.Services.AddDbContext<TukiPrimaryDatabaseContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+builder.Services.AddDbContext<ProductsContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
 
 //ApplicationInsights
 builder.Services.AddApplicationInsightsTelemetry();
@@ -73,7 +66,6 @@ builder.Services.AddApiVersioning();
 var app = builder.Build();
 
 
-////////////////////////////// Configure the HTTP request pipeline. /////////////////////////////////////
 
 if (app.Environment.IsDevelopment())
 {
@@ -99,7 +91,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.UseApiKeyMiddleware();
 
 app.Run();

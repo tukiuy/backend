@@ -1,11 +1,8 @@
-using DomainLayer.Dtos;
-using DomainLayer.Querys;
-using FluentValidation;
-using FluentValidation.Results;
+using ProductsApi.Contracts.Dtos;
+using ProductsApi.Contracts.Querys;
 using MediatR;
 using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace ApiCompras.Controllers
 {
@@ -28,11 +25,11 @@ namespace ApiCompras.Controllers
         [HttpGet]
         [Route("v{version:apiVersion}/[controller]/ListarCatalogosPorIdEvento")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-        public async Task<ActionResult<ArticuloDto>> ListarCatalogoPorIdEvento(int IdEvento)
+        public async Task<ActionResult<ProductDto>> ListarCatalogoPorIdEvento(Guid Eventid)
         {
             try
             {
-                var query = new ObtenerCatalogoPorIdEventoQuery() { Id = IdEvento };
+                var query = new GetCatalogueForEventQuery() { Id = EventId };
                 var catalogos = await _mediator.Send(query);
                 if (catalogos.Count() == 0)
                 {
