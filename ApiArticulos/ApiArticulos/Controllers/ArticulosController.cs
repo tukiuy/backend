@@ -25,7 +25,7 @@ namespace ApiCompras.Controllers
         [HttpGet]
         [Route("v{version:apiVersion}/[controller]/ListarCatalogosPorIdEvento")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-        public async Task<ActionResult<ProductDto>> ListarCatalogoPorIdEvento(Guid Eventid)
+        public async Task<ActionResult<ProductDto>> ListarCatalogoPorIdEvento(Guid EventId)
         {
             try
             {
