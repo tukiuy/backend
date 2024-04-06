@@ -16,11 +16,7 @@ public partial class ProductsContext : DbContext
 
     public virtual DbSet<Product> Articulos { get; set; }
 
-    public virtual DbSet<Catalogue> Catalogos { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=tcp:tuki-prod-server.database.windows.net,1433;Initial Catalog=TukiPrimaryDatabase;Persist Security Info=False;User ID=tuki-prod-login;Password=IvoNacho!2023;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-
+    public virtual DbSet<Catalog> Catalogos { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Product>(entity =>
@@ -38,7 +34,7 @@ public partial class ProductsContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<Catalogue>(entity =>
+        modelBuilder.Entity<Catalog>(entity =>
         {
             entity.HasOne(d => d.Product).WithMany(p => p.Catalogs)
                 .HasForeignKey(d => d.ProductId)

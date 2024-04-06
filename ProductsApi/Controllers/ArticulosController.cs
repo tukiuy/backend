@@ -4,7 +4,7 @@ using MediatR;
 using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiCompras.Controllers
+namespace ProductsApi.Controllers
 {
     [ApiController]
     [ApiVersion("1.0")]
@@ -21,9 +21,8 @@ namespace ApiCompras.Controllers
             _mediator = mediator;
         }
 
-
         [HttpGet]
-        [Route("v{version:apiVersion}/[controller]/ListarCatalogosPorIdEvento")]
+        [Route("[controller]/ListarCatalogosPorIdEvento")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public async Task<ActionResult<ProductDto>> ListarCatalogoPorIdEvento(Guid EventId)
         {
@@ -43,8 +42,5 @@ namespace ApiCompras.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-
-
-
     } 
 }
