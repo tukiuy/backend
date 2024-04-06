@@ -6,16 +6,12 @@ using ProductsApi.Contracts.Dtos.Extensions;
 
 namespace ProductsApi.Application.Handlers;
 
-public class ArticulosQueryHandlers : IRequestHandler<GetCatalogQuery, IEnumerable<CatalogDto>>
+public class GetEventCatalogQueryHandler(ProductsContext context) 
+    : IRequestHandler<GetEventCatalogQuery, IEnumerable<CatalogDto>>
 {
-    private readonly ProductsContext _context;
+    private readonly ProductsContext _context = context;
 
-    public ArticulosQueryHandlers(ProductsContext context)
-    {
-        _context = context;
-    }
-
-    public async Task<IEnumerable<CatalogDto>> Handle(GetCatalogQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<CatalogDto>> Handle(GetEventCatalogQuery request, CancellationToken cancellationToken)
     {
         var catalogs = from catalog in _context.Catalogs
                        where catalog.EventId == request.EventId

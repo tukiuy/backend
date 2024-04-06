@@ -7,17 +7,18 @@ namespace ProductsApi.Controllers
 {
     [ApiController]
     [Produces("application/json")]
-    public class ProductsController(IMediator mediator, ILogger<ProductsController> logger) : ControllerBase
+    public class CatalogController(IMediator mediator, ILogger<CatalogController> logger) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
-        private readonly ILogger<ProductsController> logger = logger;
+        private readonly ILogger<CatalogController> logger = logger;
 
         [HttpGet]
+        [Route("[controller]")]
         public async Task<ActionResult<ProductDto>> ListarCatalogoPorIdEvento(Guid EventId)
         {
             try
             {
-                var query = new GetCatalogQuery() { EventId = EventId };
+                var query = new GetEventCatalogQuery() { EventId = EventId };
                 var catalogos = await _mediator.Send(query);
                 if (catalogos.Any())
                 {

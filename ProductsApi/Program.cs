@@ -47,21 +47,11 @@ builder.Services.AddHealthChecks();
 
 
 //MediatR
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining(typeof(ArticulosQueryHandlers)));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining(typeof(Program)));
 
 
-//Config
 var Configuration = builder.Configuration;
-
-//EntityFramework
 builder.Services.AddDbContext<ProductsContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
-
-//ApplicationInsights
-builder.Services.AddApplicationInsightsTelemetry();
-
-//ApiVersioning
-builder.Services.AddApiVersioning();
 
 var app = builder.Build();
 
