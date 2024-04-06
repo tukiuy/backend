@@ -3,7 +3,7 @@ using MediatR;
 
 namespace ProductsApi.Contracts.Querys
 {
-    public class GetCatalogQuery : IRequest<IEnumerable<ProductDto>>
+    public class GetCatalogQuery : IRequest<IEnumerable<CatalogDto>>
     {
         public Guid EventId { get; set; }
     }
