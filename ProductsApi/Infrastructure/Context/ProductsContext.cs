@@ -14,24 +14,18 @@ public partial class ProductsContext : DbContext
     {
     }
 
-    public virtual DbSet<Product> Articulos { get; set; }
+    public virtual DbSet<Product> Products { get; set; }
 
-    public virtual DbSet<Catalog> Catalogos { get; set; }
+    public virtual DbSet<Catalog> Catalogs { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Product>(entity =>
         {
             entity.HasKey(e => e.Id);
 
-            entity.Property(e => e.Description)
-                .HasMaxLength(80)
-                .IsUnicode(false);
-            entity.Property(e => e.ImageLink)
-                .HasMaxLength(300)
-                .IsUnicode(false);
-            entity.Property(e => e.Name)
-                .HasMaxLength(30)
-                .IsUnicode(false);
+            entity.Property(e => e.Description).IsUnicode(false);
+            entity.Property(e => e.ImageLink).IsUnicode(false);
+            entity.Property(e => e.Name).IsUnicode(false);
         });
 
         modelBuilder.Entity<Catalog>(entity =>
@@ -39,7 +33,7 @@ public partial class ProductsContext : DbContext
             entity.HasOne(d => d.Product).WithMany(p => p.Catalogs)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Catalogue_Products");
+                .HasConstraintName("FK_Catalog_Product");
         });
 
         OnModelCreatingPartial(modelBuilder);

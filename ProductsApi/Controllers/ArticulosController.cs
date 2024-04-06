@@ -1,44 +1,33 @@
 using ProductsApi.Contracts.Dtos;
 using ProductsApi.Contracts.Querys;
 using MediatR;
-using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProductsApi.Controllers
 {
     [ApiController]
-    [ApiVersion("1.0")]
-    [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
     [Produces("application/json")]
-    public class ArticulosController : ControllerBase
+    public class ProductsController(IMediator mediator, ILogger<ProductsController> logger) : ControllerBase
     {
-        private readonly IMediator _mediator;
-        private readonly TelemetryClient _telemetryClient;
-
-        public ArticulosController(IMediator mediator, TelemetryClient telemetryClient) 
-        {
-            _telemetryClient= telemetryClient;
-            _mediator = mediator;
-        }
+        private readonly IMediator _mediator = mediator;
+        private readonly ILogger<ProductsController> logger = logger;
 
         [HttpGet]
-        [Route("[controller]/ListarCatalogosPorIdEvento")]
-        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public async Task<ActionResult<ProductDto>> ListarCatalogoPorIdEvento(Guid EventId)
         {
             try
             {
-                var query = new GetCatalogueForEventQuery() { Id = EventId };
+                var query = new GetCatalogQuery() { EventId = EventId };
                 var catalogos = await _mediator.Send(query);
-                if (catalogos.Count() == 0)
+                if (catalogos.Any())
                 {
-                    return NotFound();
+                    return Ok(catalogos);
                 }
-                return Ok(catalogos);
+                return NotFound();
             }
             catch (Exception ex)
             {
-                _telemetryClient.TrackException(ex);
+                logger.LogError(message: "Some exception was thrown and not captured." ,exception: ex);
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
