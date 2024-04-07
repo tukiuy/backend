@@ -1,7 +1,7 @@
-﻿using ProductsApi.Contracts.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Tuki.Catalogs.Api.Contracts.Models;
 
-namespace ProductsApi.Infrastructure.Context;
+namespace Tuki.Catalogs.Api.Infrastructure.Context;
 
 public partial class ProductsContext : DbContext
 {

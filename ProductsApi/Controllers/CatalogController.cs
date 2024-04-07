@@ -1,9 +1,9 @@
-using ProductsApi.Contracts.Dtos;
 using ProductsApi.Contracts.Querys;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Tuki.Catalogs.Api.Contracts.Dtos;
 
-namespace ProductsApi.Controllers
+namespace Tuki.Catalogs.Api.Controllers
 {
     [ApiController]
     [Produces("application/json")]
@@ -28,9 +28,9 @@ namespace ProductsApi.Controllers
             }
             catch (Exception ex)
             {
-                logger.LogError(message: "Some exception was thrown and not captured." ,exception: ex);
+                logger.LogError(message: "Some exception was thrown and not captured.", exception: ex);
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-    } 
+    }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
 
-namespace ApiEventos.Middleware
+namespace Tuki.Catalogs.Api.Middleware
 {
     public class ApiKeyMiddleware
     {

@@ -1,4 +1,4 @@
-﻿namespace ProductsApi.Contracts.Models;
+﻿namespace Tuki.Catalogs.Api.Contracts.Models;
 
 public class Catalog
 {

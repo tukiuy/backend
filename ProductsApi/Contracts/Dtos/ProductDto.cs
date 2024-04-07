@@ -1,4 +1,4 @@
-﻿namespace ProductsApi.Contracts.Dtos;
+﻿namespace Tuki.Catalogs.Api.Contracts.Dtos;
 
 public record ProductDto
 {

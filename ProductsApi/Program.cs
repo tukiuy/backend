@@ -2,14 +2,15 @@ using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using ProductsApi.Application.Handlers;
-using ProductsApi.Infrastructure.Context;
+using Tuki.Catalogs.Api.Infrastructure.Context;
+using Tuki.Common.Authentication.ApiKey;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //////////////////// Add services to the container. /////////////////////////////////////
 
 builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -42,11 +43,9 @@ builder.Services.AddSwaggerGen(c =>
     c.AddSecurityRequirement(requirement);
 });
 
-//Healtchecks
 builder.Services.AddHealthChecks();
+builder.Services.AddApiKeyAuthentication();
 
-
-//MediatR
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining(typeof(Program)));
 
 
@@ -78,6 +77,7 @@ app.MapHealthChecks(
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,7 +1,7 @@
-﻿using ProductsApi.Contracts.Dtos;
-using MediatR;
+﻿using MediatR;
+using Tuki.Catalogs.Api.Contracts.Dtos;
 
-namespace ProductsApi.Contracts.Querys
+namespace Tuki.Catalogs.Api.Contracts.Querys
 {
     public class GetEventCatalogQuery : IRequest<IEnumerable<CatalogDto>>
     {
