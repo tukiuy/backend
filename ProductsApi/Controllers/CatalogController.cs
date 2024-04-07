@@ -1,7 +1,7 @@
-using ProductsApi.Contracts.Querys;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Tuki.Catalogs.Api.Contracts.Dtos;
+using Tuki.Catalogs.Api.Contracts.Querys;
 
 namespace Tuki.Catalogs.Api.Controllers
 {

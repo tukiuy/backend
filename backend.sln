@@ -3,12 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuki.Catalogs.Api", "ProductsApi\Tuki.Catalogs.Api.csproj", "{D3C80CA3-7A83-4955-BC28-EB5237832417}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuki.Common", "Common\Tuki.Common.csproj", "{BF78B869-4153-4C0A-9ED3-684D07D0B00E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3C80CA3-7A83-4955-BC28-EB5237832417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3C80CA3-7A83-4955-BC28-EB5237832417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3C80CA3-7A83-4955-BC28-EB5237832417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3C80CA3-7A83-4955-BC28-EB5237832417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF78B869-4153-4C0A-9ED3-684D07D0B00E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF78B869-4153-4C0A-9ED3-684D07D0B00E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF78B869-4153-4C0A-9ED3-684D07D0B00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF78B869-4153-4C0A-9ED3-684D07D0B00E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F6863B7-453B-42CF-806E-F2D8B4628411}
 	EndGlobalSection
 EndGlobal
