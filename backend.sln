@@ -5,7 +5,14 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuki.Catalogs.Api", "Tuki.Catalogs.Api\Tuki.Catalogs.Api.csproj", "{D3C80CA3-7A83-4955-BC28-EB5237832417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuki.Common", "Tuki.Common\Tuki.Common.csproj", "{BF78B869-4153-4C0A-9ED3-684D07D0B00E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuki.Common", "Tuki.Common\Tuki.Common.csproj", "{BF78B869-4153-4C0A-9ED3-684D07D0B00E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuki.Transactions.Api", "Tuki.Transtaction.Api\Tuki.Transactions.Api.csproj", "{BCA06CB7-FF7F-4471-AE7E-B38F1EDEAA90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EBFA7A0-3983-4CD1-BB1D-E44E3CDF3E60}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +28,10 @@ Global
 		{BF78B869-4153-4C0A-9ED3-684D07D0B00E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF78B869-4153-4C0A-9ED3-684D07D0B00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF78B869-4153-4C0A-9ED3-684D07D0B00E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCA06CB7-FF7F-4471-AE7E-B38F1EDEAA90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA06CB7-FF7F-4471-AE7E-B38F1EDEAA90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCA06CB7-FF7F-4471-AE7E-B38F1EDEAA90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCA06CB7-FF7F-4471-AE7E-B38F1EDEAA90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

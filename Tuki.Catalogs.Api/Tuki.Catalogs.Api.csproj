@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Tuki.Common.csproj" />
+    <ProjectReference Include="..\Tuki.Common\Tuki.Common.csproj" />
   </ItemGroup>
 
 </Project>
