@@ -6,15 +6,10 @@ using Tuki.Transactions.Api.Contracts.Commands;
 namespace Tuki.Transactions.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class TransactionsController : ControllerBase
+    public class TransactionsController(IMediator mediator) : ControllerBase
     {
-        private readonly IMediator _mediator;
+        private readonly IMediator _mediator = mediator;
 
-        public TransactionsController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
         [HttpPost]
         public async Task<IActionResult> CreatePayment(CreatePaymentCommand createPaymentCommand)
         {
