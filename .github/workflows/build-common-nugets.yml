@@ -20,7 +20,7 @@ jobs:
     - name: Test project
       run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
     - name: Pack nuget
-      run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output 
+      run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
     - name: Push nuget
       run: dotnet nuget push Tuki.Common.${VERSION}.nupkg --source https://nuget.pkg.github.com/tukiuy/index.json --api-key ${GITHUB_TOKEN}
       env: 
