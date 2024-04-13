@@ -18,7 +18,7 @@ services:
             - ~/.vsdbg:/remote_debbuger.rw
             - ~/.aspnet/https:/https:ro
     catalogs-api:
-        image: catalogs-api
+        image: catalogs-api 
         build: 
             context: ./Tuki.Catalogs.Api
             dockerfile: Dockerfile
