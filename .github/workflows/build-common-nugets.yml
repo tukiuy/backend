@@ -1,9 +1,12 @@
 on: 
+  push: 
+    branches:
+      - 'feature/**'
   pull_request:
     branches:
-    - 'main'
+      - 'main'
     paths:
-    - './Tuki.Common/**'
+      - './Tuki.Common/**'
 
 
 jobs:
