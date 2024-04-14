@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EBFA7A0-3983-4CD1-BB1D-E44E3CDF3E60}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuki.Transactions.Api", "Tuki.Transactions.Api\Tuki.Transactions.Api.csproj", "{9C58F671-3D98-47D0-A56C-78B6107733CC}"

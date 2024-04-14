@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 15
     defaults:
       run:
-        working-directory: ./Tuki.Common
+        working-directory: ./src/Tuki.Common
     steps:
     - name: Checkout
       uses: actions/checkout@v4

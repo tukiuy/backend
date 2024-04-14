@@ -32,7 +32,7 @@ services:
     transactions-api: 
         image: transactions-api
         build: 
-            context: ./Tuki.Transactions.Api
+            context: ../src/Tuki.Transactions.Api
             dockerfile: Dockerfile
         ports: 
             - 6000:80
@@ -48,7 +48,7 @@ services:
     catalogs-api:
         image: catalogs-api 
         build: 
-            context: ./Tuki.Catalogs.Api
+            context: ../src/Tuki.Catalogs.Api
             dockerfile: Dockerfile
         ports:
             - 6100:80
