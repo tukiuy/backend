@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Tuki.Common.Constants;
 using Tuki.Transactions.Api.Contracts.Commands;
 using Tuki.Transactions.Api.Contracts.Dto;
 using Tuki.Transactions.Api.Contracts.Models;

@@ -23,6 +23,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapPaymentEndpoints();
-
 app.Run();
