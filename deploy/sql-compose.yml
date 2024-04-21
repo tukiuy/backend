@@ -1,21 +1,31 @@
 version: '3.9'
 
-services:
-    tuki-db:
-        container_name: tuki-db
-        image: mcr.microsoft.com/mssql/server:2022-latest
-        restart: always
-        environment:
-          ACCEPT_EULA: Y
-          MSSQL_SA_PASSWORD: tuk1.Tuk1 
-          MSSQL_PID: Developer
-          MSSQL_TCP_PORT: 1234
-          MSSQL_AGENT_ENABLED: 'true'
-        ports:
-        - 1234:1234
-        volumes:
-        - data:/var/opt/mssql
+networks:
+  app-network-public:
+    driver: bridge
 
 volumes:
-  data:
+  sql-server-data:
     driver: local
+  sqldata:
+  sqllog:
+  sqlbackup:
+
+services:
+    tuki-db:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        container_name: tuki-db
+        networks:
+        - app-network-public
+        restart: always
+        env_file:
+        - sqlserver.env
+        - sapassword.env
+        ports:
+        - 1433:1433
+        volumes:
+        - sql-server-data:/var/opt/mssql/
+        - sqldata:/var/opt/sqlserver/data
+        - sqllog:/var/opt/sqlserver/log
+        - sqlbackup:/var/opt/sqlserver/backup
+        - /c/docker/shared:/usr/shared
