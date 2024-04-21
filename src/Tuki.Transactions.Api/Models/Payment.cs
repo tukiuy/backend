@@ -3,7 +3,7 @@ using System.Text;
 using Tuki.Common.Constants;
 using Tuki.Common.Utils;
 
-namespace Tuki.Transactions.Api.Contracts.Models;
+namespace Tuki.Transactions.Api.Models;
 
 public class Payment : Transaction
 {
@@ -22,8 +22,8 @@ public class Payment : Transaction
         Type = TransactionTypes.Payment;
         Created = DateTime.UtcNow;
         Detail = "";
-        Trace = Hasher.GetHashString(trace);     
+        Trace = Hasher.GetHashString(trace);
     }
     public Payment() { }
-    
+
 }

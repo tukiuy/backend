@@ -1,11 +1,11 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Tuki.Transactions.Api.Contracts.Commands;
+using Tuki.Transactions.Api.Application.Contracts.Commands;
 
 namespace Tuki.Transactions.Api.Controllers
 {
     [ApiController]
+    [Route("api/[controller]")]
     public class TransactionsController(IMediator mediator) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;

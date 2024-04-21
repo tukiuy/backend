@@ -1,8 +1,6 @@
 ﻿using MediatR;
-using Tuki.Transactions.Api.Contracts.Dto;
-using Tuki.Transactions.Api.Contracts.Models;
 
-namespace Tuki.Transactions.Api.Contracts.Commands;
+namespace Tuki.Transactions.Api.Application.Contracts.Commands;
 
 public class CreatePaymentCommand(Guid Id, string Status, Guid User, Guid EventId) : IRequest<Guid>
 {

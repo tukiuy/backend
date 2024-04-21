@@ -46,7 +46,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddHealthChecks();
 builder.Services.AddApiKeyAuthentication();
 builder.Services.AddMediatR(c => c.RegisterServicesFromAssemblyContaining(typeof(Program)));
-builder.Services.AddDbContext<TransactionsContext>(opt => opt.UseSqlServer(config.GetConnectionString("defaul")));
+builder.Services.AddDbContext<TransactionsContext>(opt => opt.UseSqlServer(config.GetConnectionString("default")));
 
 var app = builder.Build();
 

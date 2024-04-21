@@ -1,6 +1,6 @@
-﻿namespace Tuki.Transactions.Api.Contracts.Models;
+﻿namespace Tuki.Transactions.Api.Models;
 
-public  class Transaction
+public abstract class Transaction
 {
     public Guid TransactionId { get; set; }
     public string Trace { get; set; }
