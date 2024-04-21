@@ -22,7 +22,7 @@ services:
         - sqlserver.env
         - sapassword.env
         ports:
-        - '1433:1433'
+        - 1433:1433
         volumes:
         - sql-server-data:/var/opt/mssql/
         - sqldata:/var/opt/sqlserver/data
@@ -34,6 +34,9 @@ services:
         build: 
             context: ../src/Tuki.Transactions.Api
             dockerfile: Dockerfile
+            args:
+                - NUGET_USERNAME=i-badell
+                - NUGET_PASSWORD=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
         ports: 
             - 6000:80
             - 6001:443
@@ -50,6 +53,9 @@ services:
         build: 
             context: ../src/Tuki.Catalogs.Api
             dockerfile: Dockerfile
+            args:
+                - NUGET_USERNAME=i-badell
+                - NUGET_PASSWORD=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
         ports:
             - 6100:80
             - 6101:443
